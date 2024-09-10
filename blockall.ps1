@@ -1,18 +1,20 @@
 # Define the paths
-$hostsPath = "$env:SystemRoot\System32\drivers\etc\hosts"
-$backupHostsPath = "$env:SystemRoot\System32\drivers\etc\oldhosts"
-$addContentHostsPath = "$env:SystemRoot\System32\drivers\etc\addcontenthosts"
+$hostsPath = "C:\WINDOWS\System32\drivers\etc\hosts"
+$backupHostsPath = "C:\WINDOWS\System32\drivers\etc\oldhosts"
+$addContentHostsPath = "C:\WINDOWS\System32\drivers\etc\addcontenthosts"
 
 # Create the addcontenthosts file with the desired content
-$content = @"
-127.0.0.1 chat.openai.com
-127.0.0.1 copilot.microsoft.com
-127.0.0.1 gemini.google.com
-127.0.0.1 character.ai
-127.0.0.1 chatpdf.com
-127.0.0.1 writesonic.com
-127.0.0.1 pi.ai
-"@
+$content = @(
+""
+"127.0.0.1 chat.openai.com"
+"127.0.0.1 copilot.microsoft.com"
+"127.0.0.1 gemini.google.com"
+"127.0.0.1 character.ai"
+"127.0.0.1 chatpdf.com"
+"127.0.0.1 writesonic.com"
+"127.0.0.1 pi.ai"
+""
+)
 Set-Content -Path $addContentHostsPath -Value $content -Force
 
 # Backup the current hosts file
